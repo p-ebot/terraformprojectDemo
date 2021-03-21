@@ -5,9 +5,8 @@ provider "aws" {
 resource "aws_vpc" "iac_vpc" {
   cidr_block           = "${var.vpc_cidr}"
   enable_dns_hostnames = true
-  enable_dns_support   = truetags {
-    Name = "iac_vpc"
-  }
+  enable_dns_support   = true 
+
 }# Deploy 1 internet gatewayresource "aws_internet_gateway" "iac_internet_gateway" {
   vpc_id = "${aws_vpc.iac_vpc.id}"tags {
     Name = "iac_igw"
